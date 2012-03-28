@@ -1,0 +1,9 @@
+export PATH=/home/marshall/intel/bin:$PATH
+export PATH=/home/marshall/intel/netcdf/bin:$PATH
+
+export PYTHONPATH=$HOME/python
+
+vayu=mxw157@vayu.nci.org.au
+matsu=marshall@matsu.anu.edu.au
+
+ncisvn=https://access-svn.nci.org.au/svn
