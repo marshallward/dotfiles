@@ -22,7 +22,9 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
 # Intel compiler support
-source /opt/intel/bin/compilervars.sh intel64
+if [ -f /opt/intel/bin/compilervars.sh ]; then
+    source /opt/intel/bin/compilervars.sh intel64
+fi
 
 # Path extension
 export PATH=/home/marshall/intel/bin:$PATH
