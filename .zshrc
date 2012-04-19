@@ -17,7 +17,8 @@ else
 fi
 
 #   Shell highlighting
-eval "$(dircolors -b)"  # Default GNU colours
+test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" \
+    || eval "$(dircolors -b)"
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
@@ -30,9 +31,10 @@ export PATH=/home/marshall/intel/netcdf/bin:$PATH
 
 export PYTHONPATH=$HOME/python:$PYTHONPATH
 
-# Environment variables
+# vim integration
 export EDITOR=/usr/bin/vim
 
+# Environment variables
 export vayu=mxw157@vayu.nci.org.au
 export matsu=marshall@matsu.anu.edu.au
 export space1=u4607002@space1.rses.anu.edu.au
