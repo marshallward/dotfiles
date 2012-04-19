@@ -54,4 +54,4 @@ alias sshfs='sshfs -o idmap=user -o uid=501 -o gid=20'
 alias space1fs='sshfs $space1:gfd/marshall ~/space1'
 
 alias vless='vim -u /usr/share/vim/vimcurrent/macros/less.vim \
-    -c "colorscheme Sunburst"'
+    +"set background=dark" +"colorscheme solarized"'

@@ -11,7 +11,8 @@ alias sshfs='sshfs -o idmap=user -o uid=501 -o gid=20'
 alias s1fuse='sshfs u4607002@space1.rses.anu.edu.au:gfd/marshall ~/space1'
 
 # Parse 'less' through vim
-alias vless='vim -u /usr/share/vim/vimcurrent/macros/less.vim -c "colorscheme Sunburst"'
+alias vless='vim -u /usr/share/vim/vimcurrent/macros/less.vim \
+    +"set background=dark" +"colorscheme solarized"'
 
 # OS X-like copy to clipboard
 alias pbcopy='xclip -selection clipboard'
