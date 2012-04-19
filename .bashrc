@@ -115,7 +115,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # Intel compiler support
-source /opt/intel/bin/compilervars.sh intel64
+if [ -f /opt/intel/bin/compilervars.sh ]; then
+    source /opt/intel/bin/compilervars.sh intel64
+fi
 
 # Smart partial-command line search matching
 bind '"\e[A": history-search-backward'
