@@ -19,7 +19,7 @@ set backspace=indent,eol,start  " Free-form backspace
 
 " Text search
 set incsearch       " Search as you type
-" set hlsearch       " Highlight all search instances
+set hlsearch        " Highlight all search instances
 
 " Highlight >79 column lines
 highlight OverLength ctermbg=darkgray ctermfg=white guibg=#592929
