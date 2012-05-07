@@ -1,5 +1,12 @@
 [user]
-	name = Marshall Ward
-	email = marshall.ward@gmail.com
+    name = Marshall Ward
+    email = marshall.ward@gmail.com
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
 [core]
-	editor = vim
+    editor = vim
+[merge]
+    tool = vimdiff
