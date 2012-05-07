@@ -1,5 +1,8 @@
 # Exact Solarized color theme for the color GNU ls utility.
 # Designed for dircolors (GNU coreutils) 5.97
+# 
+# (Original? : https://github.com/seebi/dircolors-solarized)
+# (Slowing modifying this... --MLW)
 #
 # This simple theme was simultaneously designed for these terminal color schemes:
 # - Solarized dark  (best)
@@ -31,16 +34,11 @@
 #   And blue is kept for custom use of this scheme's user.
 # - See table below to see the assignments.
 
+# (Deprecated) COLOR: yes|all|no|none|tty
+COLOR all
 
-# Insatllation instructions:
-# This file goes in the /etc directory, and must be world readable.
-# You can copy this file to .dir_colors in your $HOME directory to override
-# the system defaults.
-
-# COLOR needs one of these arguments: 'tty' colorizes output to ttys, but not
-# pipes. 'all' adds color characters to all output. 'none' shuts colorization
-# off.
-COLOR tty
+# (Deprecated) EIGHTBIT: yes|no
+EIGHTBIT yes
 
 # Below, there should be one TERM entry for each termtype that is colorizable
 TERM ansi
@@ -94,19 +92,29 @@ TERM xterm-88color
 TERM xterm-color
 TERM xterm-debian
 
-# EIGHTBIT, followed by '1' for on, '0' for off. (8-bit output)
-EIGHTBIT 1
+#------------------------------------------------------------------------------
+# ANSI escape codes (ISO 6429) (*: rarely supported)
+# Reference: http://en.wikipedia.org/wiki/ANSI_escape_code
+#------------------------------------------------------------------------------
+# Attributes            Text/background Colors
+# ----------            ----------------------
+# 0 : Reset/Normal      30/40 : black
+# 1 : Bold              31/41 : red
+# 2*: Faint             32/42 : green
+# 3*: Italic            33/43 : yellow
+# 4 : Underline         34/44 : blue
+# 5 : Blink             35/45 : magenta
+# 6*: Blink (rapid)     36/46 : cyan
+# 7 : Invert fg/bg      37/47 : white
+# 8*: Conceal           38/48 : 256-color enable
+# 9*: Crossed-out       39/49 : Default
+
+NORMAL 00
+FILE 00
+DIR 36
+LINK 35
 
 #############################################################################
-# Below are the color init strings for the basic file types. A color init
-# string consists of one or more of the following numeric codes:
-#
-# Attribute codes: 
-#   00=none 01=bold 04=underscore 05=blink 07=reverse 08=concealed
-# Text color codes:
-#   30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white
-# Background color codes:
-#   40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
 #
 # NOTES:
 # - See http://www.oreilly.com/catalog/wdnut/excerpt/color_names.html
@@ -135,14 +143,6 @@ EIGHTBIT 1
 
 ### By file type
 
-# global default
-NORMAL 00
-# normal file
-FILE 00
-# directory
-DIR 36
-# symbolic link
-LINK 35
 
 # pipe, socket, block device, character device (blue bg)
 FIFO 30;44
