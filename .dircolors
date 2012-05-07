@@ -6,18 +6,18 @@
 # References:   http://en.wikipedia.org/wiki/ANSI_escape_code
 #               http://ethanschoonover.com/solarized
 #------------------------------------------------------------------------------
-# Attributes            Text/BG Colors      Solarized Colors    Hex (RGB) Color
-# ----------            --------------      ----------------    ---------------
-# 0 : Reset/Normal      30/40 : black       base02  / base03    073642 / 002b36
-# 1 : Bold              31/41 : red         red     / orange    dc322f / cb4b16
-# 2*: Faint             32/42 : green       green   / base01    859900 / 586e75
-# 3*: Italic            33/43 : yellow      yellow  / base00    b58900 / 657b83
-# 4 : Underline         34/44 : blue        blue    / base0     268bd2 / 839496
-# 5 : Blink             35/45 : magenta     magenta / violet    d33682 / 6c71c4
-# 6*: Blink (rapid)     36/46 : cyan        cyan    / base1     2aa198 / 93a1a1
-# 7 : Invert fg/bg      37/47 : white       white   / base3     eee8d5 / fdf6e3
-# 8*: Conceal           38/48 : 256-color
-# 9*: Crossed-out       39/49 : Default
+# Attributes            Text Colors     Solarized Colors    Hex (RGB) Color
+# ----------            -----------     ----------------    ---------------
+# 00 : Reset/Normal     30 : black      base02  / base03    073642 / 002b36
+# 01 : Bright           31 : red        red     / orange    dc322f / cb4b16
+# 02*: Faint            32 : green      green   / base01    859900 / 586e75
+# 03*: Italic           33 : yellow     yellow  / base00    b58900 / 657b83
+# 04 : Underline        34 : blue       blue    / base0     268bd2 / 839496
+# 05 : Blink            35 : magenta    magenta / violet    d33682 / 6c71c4
+# 06*: Blink (rapid)    36 : cyan       cyan    / base1     2aa198 / 93a1a1
+# 07 : Invert fg/bg     37 : white      white   / base3     eee8d5 / fdf6e3
+# 08*: Conceal          38 : 256-color
+# 09*: Crossed-out      39 : Default
 
 # Basic files
 NORMAL  00
@@ -30,41 +30,20 @@ ORPHAN  05;37;41
 MISSING 05;37;41
 
 # Pipes, sockets, devices
-FIFO    30;44
-SOCK    35;44
-DOOR    35;44 # Solaris 2.5 and later
-BLK     33;44
+FIFO    31;44
+SOCK    33;44
+DOOR    33;44 # Solaris 2.5 and later
+BLK     37;44
 CHR     37;44
 
 # Executables
-EXEC    01;31  # Unix
-.cmd    01;31  # Win
-.exe    01;31  # Win
-.com    01;31  # Win
-.bat    01;31  # Win
-.reg    01;31  # Win
-.app    01;31  # OSX
-
-#############################################################################
-#   ANSI Color code       Solarized
-#   ~~~~~~~~~~~~~~~       ~~~~~~~~~
-#   00    none
-#   30    black           base02
-#   01;30 bright black    base03
-#   31    red             red
-#   01;31 bright red      orange
-#   32    green           green
-#   01;32 bright green    base01
-#   33    yellow          yellow
-#   01;33 bright yellow   base00
-#   34    blue            blue
-#   01;34 bright blue     base0
-#   35    magenta         magenta
-#   01;35 bright magenta  violet
-#   36    cyan            cyan
-#   01;36 bright cyan     base1
-#   37    white           base2
-#   01;37 bright white    base3
+EXEC    01;35  # Unix
+.cmd    01;35  # Win
+.exe    01;35  # Win
+.com    01;35  # Win
+.bat    01;35  # Win
+.reg    01;35  # Win
+.app    01;35  # OSX
 
 #############################################################################
 ### By extension
