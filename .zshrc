@@ -38,6 +38,7 @@ export EDITOR=/usr/bin/vim
 
 # Environment variables
 export vayu=mxw157@vayu.nci.org.au
+export dcc=mxw157@dcc.nci.org.au
 export matsu=marshall@matsu.anu.edu.au
 export space1=u4607002@space1.rses.anu.edu.au
 export accesscollab=mxw157@accesscollab.nci.org.au
@@ -47,6 +48,7 @@ export ncisvn=https://access-svn.nci.org.au/svn
 alias rm='rm -i'
 
 alias govayu='ssh -Y $vayu'
+alias godcc='ssh -Y $dcc'
 alias gomatsu='ssh -Y $matsu'
 alias goaccess='ssh -Y $accesscollab'
 
