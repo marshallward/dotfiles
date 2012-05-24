@@ -37,6 +37,7 @@ export PYTHONPATH=$HOME/python:$PYTHONPATH
 export EDITOR=/usr/bin/vim
 
 # Environment variables
+export zora=marshall@zora.anu.edu.au
 export vayu=mxw157@vayu.nci.org.au
 export dcc=mxw157@dcc.nci.org.au
 export matsu=marshall@matsu.anu.edu.au
@@ -47,6 +48,7 @@ export ncisvn=https://access-svn.nci.org.au/svn
 # Aliases
 alias rm='rm -i'
 
+alias gozora='ssh -Y $zora'
 alias govayu='ssh -Y $vayu'
 alias godcc='ssh -Y $dcc'
 alias gomatsu='ssh -Y $matsu'
