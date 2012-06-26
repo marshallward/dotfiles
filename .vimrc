@@ -42,4 +42,5 @@ if has("autocmd")
     filetype plugin on
     autocmd filetype make setlocal noexpandtab  " Makefile tabs
     autocmd filetype tex  setlocal textwidth=79 " TeX word wrap
+    autocmd filetype rst  setlocal textwidth=79 " reST wrap
 endif

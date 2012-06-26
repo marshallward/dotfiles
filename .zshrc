@@ -31,7 +31,7 @@ fi
 export PATH=/home/marshall/intel/bin:$PATH
 export PATH=/home/marshall/intel/netcdf/bin:$PATH
 
-export PYTHONPATH=$HOME/python:$PYTHONPATH
+export PYTHONPATH=$HOME/python
 
 # vim integration
 export EDITOR=/usr/bin/vim
