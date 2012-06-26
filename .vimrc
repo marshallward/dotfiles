@@ -36,10 +36,12 @@ set autoindent
 let fortran_free_source=1
 
 " filetype detection, language specific settings
+filetype on
+filetype indent on
+filetype plugin on
+set ofu=syntaxcomplete#Complete
 if has("autocmd")
-    filetype on
-    filetype indent on
-    filetype plugin on
     autocmd filetype make setlocal noexpandtab  " Makefile tabs
     autocmd filetype tex  setlocal textwidth=79 " TeX word wrap
+    autocmd filetype rst  setlocal textwidth=79 " reST word wrap
 endif
