@@ -40,8 +40,11 @@ filetype on
 filetype indent on
 filetype plugin on
 set ofu=syntaxcomplete#Complete
-if has("autocmd")
-    autocmd filetype make setlocal noexpandtab  " Makefile tabs
-    autocmd filetype tex  setlocal textwidth=79 " TeX word wrap
-    autocmd filetype rst  setlocal textwidth=79 " reST word wrap
-endif
+
+augroup filetypedetect
+    au! BufRead,BufNewFile *.txt setfiletype rst
+augroup END
+
+autocmd filetype make setlocal noexpandtab  " Makefile tabs
+autocmd filetype tex  setlocal textwidth=79 " TeX word wrap
+autocmd filetype rst  setlocal textwidth=79 " reST word wrap
