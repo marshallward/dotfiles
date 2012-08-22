@@ -21,16 +21,20 @@ set backspace=indent,eol,start  " Free-form backspace
 set incsearch       " Search as you type
 set hlsearch        " Highlight all search instances
 
-" Highlight >79 column lines
-highlight OverLength ctermbg=darkgray ctermfg=white guibg=#592929
-match OverLength /\%80v.\+/
-
 " Spacing
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
+
+" Whitespace display
+nmap <leader>l :set list!<CR>
+set listchars=tab:▸\ ,eol:¬
+
+" Highlight >79 column lines
+highlight OverLength ctermbg=black guibg=#073642
+match OverLength /\%80v.\+/
 
 " Syntax details
 let fortran_free_source=1
@@ -43,6 +47,8 @@ set ofu=syntaxcomplete#Complete
 
 augroup filetypedetect
     au! BufRead,BufNewFile *.txt setfiletype rst
+    au! BufNewFile,BufRead *.mxml setfiletype mxml
+    au! BufNewFile,BufRead *.as setfiletype actionscript
 augroup END
 
 autocmd filetype make setlocal noexpandtab  " Makefile tabs
