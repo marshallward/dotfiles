@@ -1,6 +1,10 @@
 " Runtime
 "set runtimepath=~/.vim
 
+" Encoding
+set encoding=utf8
+set fileencoding=utf8
+
 " Cosmetics
 set nocompatible    " Vim mode (not vi mode)
 set shortmess=I     " No splash screen on startup
