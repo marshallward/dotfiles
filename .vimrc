@@ -2,8 +2,7 @@
 "set runtimepath=~/.vim
 
 " Encoding
-set encoding=utf8
-set fileencoding=utf8
+set encoding=utf-8
 
 " Cosmetics
 set nocompatible    " Vim mode (not vi mode)
@@ -55,6 +54,7 @@ augroup filetypedetect
     au! BufNewFile,BufRead *.as setfiletype actionscript
 augroup END
 
-autocmd filetype make setlocal noexpandtab  " Makefile tabs
-autocmd filetype tex  setlocal textwidth=79 " TeX word wrap
-autocmd filetype rst  setlocal textwidth=79 " reST word wrap
+autocmd filetype make setlocal noexpandtab
+autocmd filetype tex  setlocal textwidth=79
+autocmd filetype rst  setlocal textwidth=79
+autocmd filetype rst  setlocal spell spelllang=en_au
