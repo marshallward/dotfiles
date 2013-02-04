@@ -1,5 +1,5 @@
 # Dircolor colorscheme for GNU ls
-# Based on this distribution: https://github.com/seebi/dircolors-solarized
+# Contact: Marshall Ward (marshall.ward@gmail.com)
 
 #------------------------------------------------------------------------------
 # ANSI escape codes, (ISO 6429) (*: rarely supported)
@@ -15,217 +15,73 @@
 # 04 : Underline        34 : blue       blue    / base0     268bd2 / 839496
 # 05 : Blink            35 : magenta    magenta / violet    d33682 / 6c71c4
 # 06*: Blink (rapid)    36 : cyan       cyan    / base1     2aa198 / 93a1a1
-# 07 : Invert fg/bg     37 : white      white   / base3     eee8d5 / fdf6e3
+# 07 : Invert fg/bg     37 : white      base2   / base3     eee8d5 / fdf6e3
 # 08*: Conceal          38 : 256-color
 # 09*: Crossed-out      39 : Default
 
 # Basic files
 NORMAL  00
 FILE    00
-DIR     32
+DIR     36
 
 # Symbolic links
-LINK    36
+LINK    35
 ORPHAN  05;37;41
 MISSING 05;37;41
 
 # Pipes, sockets, devices
-FIFO    31;44
-SOCK    33;44
-DOOR    33;44 # Solaris 2.5 and later
-BLK     37;44
+FIFO    30;44
+SOCK    35;44
+DOOR    35;44   # Solaris 2.5 and later
+BLK     33;44
 CHR     37;44
 
 # Executables
-EXEC    01;35  # Unix
-.cmd    01;35  # Win
-.exe    01;35  # Win
-.com    01;35  # Win
-.bat    01;35  # Win
-.reg    01;35  # Win
-.app    01;35  # OSX
+EXEC    01;31
 
-#############################################################################
-### By extension
+#------------------------------------------------------------------------------
+# File extension
 
-# List any file extensions like '.gz' or '.tar' that you would like ls
-# to colorize below. Put the extension, a space, and the color init string.
-# (and any comments you want to add after a '#')
+# Document text
+.md     32
+.mkd    32
+.rst    32
+.tex    32
+.txt    32
 
-### Text formats
-
-# Text that we can edit with a regular editor
-.txt 34
-.org 34
-.md 34
-.mkd 34
 
 # Source text
-.h 34
-.c 34
-.C 34
-.cc 34
-.cxx 34
-.objc 34
-.sh 34
-.csh 34
-.zsh 34
-.el 34
-.vim 34
-.java 34
-.pl 34
-.pm 34
-.py 34
-.rb 34
-.hs 34
-.php 34
-.htm 34
-.html 34
-.shtml 34
-.xml 34
-.rdf 34
-.css 34
-.js 34
-.man 34
-.0 34
-.1 34
-.2 34
-.3 34
-.4 34
-.5 34
-.6 34
-.7 34
-.8 34
-.9 34
-.l 34
-.n 34
-.p 34
-.pod 34
-.tex 34
+.h      32
+.c      32
+.C      32
+.py     32
+.sh     32
+.vim    32
 
-### Multimedia formats
 
 # Image
-.bmp 33
-.cgm 33
-.dl 33
-.dvi 33
-.emf 33
-.eps 33
-.gif 33
-.jpeg 33
-.jpg 33
-.JPG 33
-.mng 33
-.pbm 33
-.pcx 33
-.pdf 33
-.pgm 33
-.png 33
-.ppm 33
-.pps 33
-.ppsx 33
-.ps 33
-.svg 33
-.svgz 33
-.tga 33
-.tif 33
-.tiff 33
-.xbm 33
-.xcf 33
-.xpm 33
-.xwd 33
-.xwd 33
-.yuv 33
+
 
 # Audio
-.aac 33
-.au  33
-.flac 33
-.mid 33
-.midi 33
-.mka 33
-.mp3 33
-.mpa 33
-.mpeg 33
-.mpg 33
-.ogg  33
-.ra 33
-.wav 33
+
 
 # Video
-.anx 33
-.asf 33
-.avi 33
-.axv 33
-.flc 33
-.fli 33
-.flv 33
-.gl 33
-.m2v 33
-.m4v 33
-.mkv 33
-.mov 33
-.mp4 33
-.mp4v 33
-.mpeg 33
-.mpg 33
-.nuv 33
-.ogm 33
-.ogv 33
-.ogx 33
-.qt 33
-.rm 33
-.rmvb 33
-.swf 33
-.vob 33
-.wmv 33
 
-### Misc
 
 # Binary document formats and multimedia source
-.doc 31
-.docx 31
-.rtf 31
-.dot 31
-.dotx 31
-.xls 31
-.xlsx 31
-.ppt 31
-.pptx 31
-.fla 31
-.psd 31
+.pdf    31
+
 
 # Archives, compressed
-.7z   1;35
-.apk  1;35
-.arj  1;35
-.bin  1;35
-.bz   1;35
-.bz2  1;35
-.cab  1;35  # Win
-.deb  1;35
-.dmg  1;35  # OSX
-.gem  1;35
-.gz   1;35
-.iso  1;35
-.jar  1;35
-.msi  1;35  # Win
-.rar  1;35
-.rpm  1;35
-.tar  1;35
-.tbz  1;35
-.tbz2 1;35
-.tgz  1;35
-.tx   1;35
-.war  1;35
-.xpi  1;35
-.xz   1;35
-.z    1;35
-.Z    1;35
-.zip  1;35
+.7z     01;35
+.bz2    01;35
+.gz     01;35
+.tar    01;35
+.tgz    01;35
+.zip    01;35
 
-# For testing
+
+# Testing
 .ANSI-30-black 30
 .ANSI-01;30-brblack 01;30
 .ANSI-31-red 31
@@ -249,9 +105,6 @@ EXEC    01;35  # Unix
 # Unimportant text files
 # For universal scheme, use brightgreen 01;32
 # For optimal on light bg (but too prominent on dark bg), use white 01;34
-.log 01;32
-*~ 01;32
-*# 01;32
 #.log 01;34
 #*~ 01;34
 #*# 01;34
@@ -259,20 +112,6 @@ EXEC    01;35  # Unix
 # Unimportant non-text files
 # For universal scheme, use brightcyan 01;36
 # For optimal on dark bg (but too prominent on light bg), change to 01;33
-.bak 01;36
-.BAK 01;36
-.old 01;36
-.OLD 01;36
-.org_archive 01;36
-.off 01;36
-.OFF 01;36
-.dist 01;36
-.DIST 01;36
-.orig 01;36
-.ORIG 01;36
-.swp 01;36
-.swo 01;36
-*,v 01;36
 #.bak 01;33
 #.BAK 01;33
 #.old 01;33
@@ -290,13 +129,6 @@ EXEC    01;35  # Unix
 
 # The brightmagenta (Solarized: purple) color is free for you to use for your
 # custom file type
-.gpg 34
-.gpg 34
-.pgp 34
-.asc 34
-.3des 34
-.aes 34
-.enc 34
 
 # Below, there should be one TERM entry for each termtype that is colorizable
 TERM ansi
