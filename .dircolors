@@ -22,64 +22,51 @@
 # Basic files
 NORMAL  00
 FILE    00
-DIR     36
+DIR     32
 
 # Symbolic links
-LINK    35
+LINK    36
 ORPHAN  05;37;41
 MISSING 05;37;41
 
 # Pipes, sockets, devices
-FIFO    30;44
+FIFO    33;44
 SOCK    35;44
-DOOR    35;44   # Solaris 2.5 and later
+DOOR    35;44 # Solaris 2.5 and later
 BLK     33;44
-CHR     37;44
+CHR     33;44
 
 # Executables
-EXEC    01;31
+EXEC    01;35
 
 #------------------------------------------------------------------------------
 # File extension
 
 # Document text
-.md     32
-.mkd    32
-.rst    32
-.tex    32
-.txt    32
-
+.md     34
+.mkd    34
+.rst    34
+.tex    34
+.txt    34
 
 # Source text
-.h      32
-.c      32
-.C      32
-.py     32
-.sh     32
-.vim    32
+.h      34
+.c      34
+.C      34
+.py     34
+.sh     34
+.vim    34
 
 
 # Image
 
-
 # Audio
-
 
 # Video
 
-
 # Binary document formats and multimedia source
-.pdf    31
-
 
 # Archives, compressed
-.7z     01;35
-.bz2    01;35
-.gz     01;35
-.tar    01;35
-.tgz    01;35
-.zip    01;35
-
 
 # Testing
 .ANSI-30-black 30
