@@ -2,7 +2,7 @@
 "set runtimepath=~/.vim
 
 " Encoding
-set encoding=utf-8
+set encoding=utf8
 
 " Cosmetics
 set nocompatible    " Vim mode (not vi mode)
@@ -34,6 +34,8 @@ set autoindent
 " Whitespace display
 nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬
+hi NonText ctermfg=DarkGrey
+hi SpecialKey ctermfg=DarkGrey
 
 " Highlight >79 column lines
 highlight OverLength ctermbg=black guibg=#073642
