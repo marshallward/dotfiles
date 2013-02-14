@@ -1,8 +1,8 @@
 # Dircolor colorscheme for GNU ls
-# Contact: Marshall Ward (marshall.ward@gmail.com)
+# Contact: Marshall Ward <marshall.ward@gmail.com>
 
 #------------------------------------------------------------------------------
-# ANSI escape codes, (ISO 6429) (*: rarely supported)
+# ANSI escape codes (ISO 6429) (*: rarely supported)
 # References:   http://en.wikipedia.org/wiki/ANSI_escape_code
 #               http://ethanschoonover.com/solarized
 #------------------------------------------------------------------------------
@@ -21,8 +21,8 @@
 #------------------------------------------------------------------------------
 
 # Basic files
-NORMAL  00          # Generic file
-FILE    00          # Normal file
+NORMAL  00          # Generic text
+FILE    00          # Regular file
 RESET   00          # ???
 EXEC    01;35       # Executable file
 
@@ -45,10 +45,10 @@ CAPABILITY              01;31       # Partial root privileges
 
 # Sockets
 FIFO    33;44       # Named pipe
-SOCK    35;44       
-BLK     33;44
-CHR     33;44
-DOOR    35;44       # Solaris 2.5+ (and Linux 2.4.
+SOCK    35;44       # Domain socket
+BLK     33;44       # Block device (random access)
+CHR     33;44       # Character device (stream)
+DOOR    35;44       # Server-client IPC for Solaris
 
 # Escape code sequences
 # LEFTCODE      \e[
