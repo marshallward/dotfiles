@@ -17,27 +17,43 @@
 # 06*: Blink (rapid)    36 : cyan       cyan    / base1     2aa198 / 93a1a1
 # 07 : Invert fg/bg     37 : white      base2   / base3     eee8d5 / fdf6e3
 # 08*: Conceal          38 : 256-color
-# 09*: Crossed-out      39 : Default
+# 09*: Crossed-out      39 : Default    (Note: 40-49 denote background colors)
+#------------------------------------------------------------------------------
 
 # Basic files
-NORMAL  00
-FILE    00
-DIR     32
+NORMAL  00          # Generic file
+FILE    00          # Normal file
+RESET   00          # ???
+EXEC    01;35       # Executable file
 
-# Symbolic links
-LINK    36
-ORPHAN  05;37;41
-MISSING 05;37;41
+# Directories
+DIR     33          # Normal directories
+SETUID  33;40       # User-inherited contents
+SETGID  33;40       # Group-inherited contents
+STICKY  33;40       # Owner-exclusive content control
 
-# Pipes, sockets, devices
-FIFO    33;44
-SOCK    35;44
-DOOR    35;44 # Solaris 2.5 and later
+# Links
+LINK                36          # Valid symbolic link
+ORPHAN              05;37;41    # Symbolic link to missing file
+MISSING             05;37;41    # Missing file (broken inode) *This is bad*
+MULTIHARDLINK       36;40       # Hard linked file
+
+# Public writable files
+OTHER_WRITABLE          31          # Publicly modifiable
+STICKY_OTHER_WRITABLE   31          # Publicly modifiabe, but sticky-bit safe
+CAPABILITY              01;31       # Partial root privileges
+
+# Sockets
+FIFO    33;44       # Named pipe
+SOCK    35;44       
 BLK     33;44
 CHR     33;44
+DOOR    35;44       # Solaris 2.5+ (and Linux 2.4.
 
-# Executables
-EXEC    01;35
+# Escape code sequences
+# LEFTCODE      \e[
+# RIGHTCODE     m
+# ENDCODE
 
 #------------------------------------------------------------------------------
 # File extension
@@ -50,9 +66,11 @@ EXEC    01;35
 .txt    34
 
 # Source text
-.h      34
 .c      34
 .C      34
+.h      34
+.js     34
+.html   34
 .py     34
 .sh     34
 .vim    34
