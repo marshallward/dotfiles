@@ -60,3 +60,4 @@ autocmd filetype make setlocal noexpandtab
 autocmd filetype tex  setlocal textwidth=79
 autocmd filetype rst  setlocal textwidth=79
 autocmd filetype rst  setlocal spell spelllang=en_au
+autocmd filetype htm*,php,xml setlocal ts=2 sts=2 sw=2
