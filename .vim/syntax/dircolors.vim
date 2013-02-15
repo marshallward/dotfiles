@@ -17,9 +17,10 @@ syn keyword dircolorsTodo       contained FIXME TODO XXX NOTE
 
 syn region  dircolorsComment    start='#' end='$' contains=dircolorsTodo,@Spell
 
+" Keywords without color codes
 syn keyword dircolorsKeyword    TERM LEFT LEFTCODE RIGHT RIGHTCODE END ENDCODE
 
-" coreutils codes
+" Keywords requiring color codes
 syn keyword dircolorsKeyword    NORMAL NORM FILE RESET DIR LNK LINK SYMLINK
                                 \ ORPHAN MISSING FIFO PIPE SOCK BLK BLOCK CHR
                                 \ CHAR DOOR EXEC SUID SETUID SGID SETGID STICKY
@@ -27,7 +28,8 @@ syn keyword dircolorsKeyword    NORMAL NORM FILE RESET DIR LNK LINK SYMLINK
                                 \ CAPABILITY MULTIHARDLINK CLRTOEOL
                                 \ nextgroup=@dircolorsColors skipwhite
 
-" Slackware codes
+" Slackware keywords
+" TODO: Format keywords
 syn keyword dircolorsKeyword  COLOR OPTIONS EIGHTBIT
 
 syn match   dircolorsExtension  '^\s*\zs[.*]\S\+'
@@ -74,14 +76,14 @@ if &t_Co == 8 || &t_Co == 16 || &t_Co == 256
   syn match dircolorsBGCyan     contained '\<46\>'
   syn match dircolorsBGWhite    contained '\<47\>'
   " Experimental!
-  syn match dircolorsBrBlack    contained '\(.*\(\<\|;\)0\=1\)\&\(.*\(\<\|;\)30\).*\>'
-  syn match dircolorsBrRed      contained '\(.*\(\<\|;\)0\=1\)\&\(.*\(\<\|;\)31\).*\>'
-  syn match dircolorsBrGreen    contained '\(.*\(\<\|;\)0\=1\)\&\(.*\(\<\|;\)32\).*\>'
-  syn match dircolorsBrYellow   contained '\(.*\(\<\|;\)0\=1\)\&\(.*\(\<\|;\)33\).*\>'
-  syn match dircolorsBrBlue     contained '\(.*\(\<\|;\)0\=1\)\&\(.*\(\<\|;\)34\).*\>'
-  syn match dircolorsBrMagenta  contained '\(.*\(\<\|;\)0\=1\)\&\(.*\(\<\|;\)35\).*\>'
-  syn match dircolorsBrCyan     contained '\(.*\(\<\|;\)0\=1\)\&\(.*\(\<\|;\)36\).*\>'
-  syn match dircolorsBrWhite    contained '\(.*\(\<\|;\)0\=1\)\&\(.*\(\<\|;\)37\).*\>'
+  syn match dircolorsBrBlack    contained '\<0\=1;30\>'
+  syn match dircolorsBrRed      contained '\<0\=1;31\>'
+  syn match dircolorsBrGreen    contained '\<0\=1;32\>'
+  syn match dircolorsBrYellow   contained '\<0\=1;33\>'
+  syn match dircolorsBrBlue     contained '\<0\=1;34\>'
+  syn match dircolorsBrMagenta  contained '\<0\=1;35\>'
+  syn match dircolorsBrCyan     contained '\<0\=1;36\>'
+  syn match dircolorsBrWhite    contained '\<0\=1;37\>'
 else
   syn cluster dircolorsColors   contains=dircolorsNumber
   syn match   dircolorsNumber   '\<\d\+\>'
@@ -92,38 +94,40 @@ hi def link dircolorsComment    Comment
 hi def link dircolorsKeyword    Keyword
 hi def link dircolorsExtension  Keyword
 
-if &t_Co == 8 || &t_Co == 16 || &t_Co == 256
-  hi def      dircolorsBold       term=bold cterm=bold gui=bold
-  hi def      dircolorsUnderline  term=underline cterm=underline gui=underline
-  hi def link dircolorsBlink      Normal
-  hi def      dircolorsReverse    term=reverse cterm=reverse gui=reverse
-  hi def link dircolorsInvisible  Ignore
-  hi def      dircolorsBrBlack    ctermfg=DarkGrey guifg=DarkGrey
-  hi def      dircolorsBlack      ctermfg=Black guifg=Black
-  hi def      dircolorsBrRed      ctermfg=Red guifg=Red
-  hi def      dircolorsRed        ctermfg=DarkRed guifg=DarkRed
-  hi def      dircolorsBrGreen    ctermfg=Green guifg=Green
-  hi def      dircolorsGreen      ctermfg=DarkGreen guifg=DarkGreen
-  hi def      dircolorsBrYellow   ctermfg=Yellow guifg=Yellow
-  hi def      dircolorsYellow     ctermfg=DarkYellow guifg=DarkYellow
-  hi def      dircolorsBrBlue     ctermfg=Blue guifg=Blue
-  hi def      dircolorsBlue       ctermfg=DarkBlue guifg=DarkBlue
-  hi def      dircolorsBrMagenta  ctermfg=Magenta guifg=Magenta
-  hi def      dircolorsMagenta    ctermfg=DarkMagenta guifg=DarkMagenta
-  hi def      dircolorsBrCyan     ctermfg=Cyan guifg=Cyan
-  hi def      dircolorsCyan       ctermfg=DarkCyan guifg=DarkCyan
-  hi def      dircolorsBrWhite    ctermfg=White guifg=White
-  hi def      dircolorsWhite      ctermfg=Grey guifg=Grey
-  hi def      dircolorsBGBlack    ctermbg=Black ctermfg=White
-                                  \ guibg=Black guifg=White
-  hi def      dircolorsBGRed      ctermbg=Red guibg=Red
-  hi def      dircolorsBGGreen    ctermbg=Green guibg=Green
-  hi def      dircolorsBGYellow   ctermbg=Yellow guibg=Yellow
-  hi def      dircolorsBGBlue     ctermbg=Blue guibg=Blue
-  hi def      dircolorsBGMagenta  ctermbg=Magenta guibg=Magenta
-  hi def      dircolorsBGCyan     ctermbg=Cyan guibg=Cyan
-  hi def      dircolorsBGWhite    ctermbg=White ctermfg=Black
-                                  \ guibg=White guifg=Black
+hi def      dircolorsBold       term=bold cterm=bold gui=bold
+hi def      dircolorsUnderline  term=underline cterm=underline gui=underline
+hi def link dircolorsBlink      Normal
+hi def      dircolorsReverse    term=reverse cterm=reverse gui=reverse
+hi def link dircolorsInvisible  Ignore
+
+if &t_Co == 8 || &t_Co == 16
+  hi def      dircolorsBlack        ctermfg=Black       guifg=Black
+  hi def      dircolorsRed          ctermfg=DarkRed     guifg=DarkRed
+  hi def      dircolorsGreen        ctermfg=DarkGreen   guifg=DarkGreen
+  hi def      dircolorsYellow       ctermfg=DarkYellow  guifg=DarkYellow
+  hi def      dircolorsBlue         ctermfg=DarkBlue    guifg=DarkBlue
+  hi def      dircolorsMagenta      ctermfg=DarkMagenta guifg=DarkMagenta
+  hi def      dircolorsCyan         ctermfg=DarkCyan    guifg=DarkCyan
+  hi def      dircolorsWhite        ctermfg=Grey        guifg=Grey
+  hi def      dircolorsBrBlack      ctermfg=DarkGrey    ctermbg=White
+                                    \ guifg=DarkGrey
+  hi def      dircolorsBrRed        ctermfg=Red         guifg=Red
+  hi def      dircolorsBrGreen      ctermfg=Green       guifg=Green
+  hi def      dircolorsBrYellow     ctermfg=Yellow      guifg=Yellow
+  hi def      dircolorsBrBlue       ctermfg=Blue        guifg=Blue
+  hi def      dircolorsBrMagenta    ctermfg=Magenta     guifg=Magenta
+  hi def      dircolorsBrCyan       ctermfg=Cyan        guifg=Cyan
+  hi def      dircolorsBrWhite      ctermfg=White       guifg=White
+  hi def      dircolorsBGBlack      ctermbg=Black       ctermfg=White
+                                    \ guibg=Black       guifg=White
+  hi def      dircolorsBGRed        ctermbg=DarkRed     guibg=Red
+  hi def      dircolorsBGGreen      ctermbg=2           guibg=Green
+  hi def      dircolorsBGYellow     ctermbg=3           guibg=Yellow
+  hi def      dircolorsBGBlue       ctermbg=4           guibg=Blue
+  hi def      dircolorsBGMagenta    ctermbg=5           guibg=Magenta
+  hi def      dircolorsBGCyan       ctermbg=6           guibg=Cyan
+  hi def      dircolorsBGWhite      ctermbg=7           ctermfg=Black
+                                    \ guibg=White   guifg=Black
 else
   hi def link dircolorsNumber     Number
 endif

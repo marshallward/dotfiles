@@ -27,7 +27,7 @@ RESET   00          # ???
 EXEC    01;35       # Executable file
 
 # Directories
-DIR     33          # Normal directories
+DIR     33          # Normal directory
 SETUID  33;40       # User-inherited contents
 SETGID  33;40       # Group-inherited contents
 STICKY  33;40       # Owner-exclusive content control
@@ -35,7 +35,7 @@ STICKY  33;40       # Owner-exclusive content control
 # Links
 LINK                36          # Valid symbolic link
 ORPHAN              05;37;41    # Symbolic link to missing file
-MISSING             05;37;41    # Missing file (broken inode) *This is bad*
+MISSING             05;37;41    # Missing file (broken inode)
 MULTIHARDLINK       36;40       # Hard linked file
 
 # Public writable files
