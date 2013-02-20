@@ -17,12 +17,19 @@ syntax enable       " Use syntax highlighting
 " Colorscheme
 colorscheme solarized
 
+" Wordwrap line jump
+nmap j gj
+nmap k gk
+
 " Editing
 set backspace=indent,eol,start  " Free-form backspace
 
 " Text search
 set incsearch       " Search as you type
+set ignorecase      " Ignore case
+set smartcase       " ... unless caps are present
 set hlsearch        " Highlight all search instances
+nmap \q :nohlsearch<CR>     " Clear search highlight
 
 " Spacing
 set tabstop=4
