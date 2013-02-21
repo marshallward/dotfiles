@@ -17,7 +17,7 @@
 # 06*: Blink (rapid)    36 : cyan       cyan    / base1     2aa198 / 93a1a1
 # 07 : Invert fg/bg     37 : white      base2   / base3     eee8d5 / fdf6e3
 # 08*: Conceal          38 : 256-color
-# 09*: Crossed-out      39 : Default    (Note: 40-49 denote background colors)
+# 09*: Crossed-out      39 : Default    (40-49 denote background colors)
 #------------------------------------------------------------------------------
 
 # Basic files

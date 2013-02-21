@@ -1,6 +1,3 @@
-" Runtime
-"set runtimepath=~/.vim
-
 " Encoding
 set encoding=utf8
 
@@ -11,10 +8,11 @@ set ruler           " Show cursor position
 set showcmd         " Show commands as they're being typed
 set showmode        " Show input mode
 set number          " Turn on row numbering
-set background=dark " User color schemes for dark backgrounds
-syntax enable       " Use syntax highlighting
 
 " Colorscheme
+set background=dark " User color schemes for dark backgrounds
+syntax enable       " Use syntax highlighting
+set t_Co=16
 colorscheme solarized
 
 " Wordwrap line jump
@@ -35,7 +33,7 @@ nmap \q :nohlsearch<CR>     " Clear search highlight
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set expandtab
+set expandtab       " Convert tabs to spaces
 set autoindent
 
 " Whitespace display
@@ -45,7 +43,7 @@ hi NonText ctermfg=DarkGrey
 hi SpecialKey ctermfg=DarkGrey
 
 " Highlight >79 column lines
-highlight OverLength ctermbg=black guibg=#073642
+highlight OverLength ctermbg=black guibg=black
 match OverLength /\%80v.\+/
 
 " Syntax details
