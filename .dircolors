@@ -17,20 +17,20 @@
 # 06*: Blink (rapid)    36 : cyan       cyan    / base1     2aa198 / 93a1a1
 # 07 : Invert fg/bg     37 : white      base2   / base3     eee8d5 / fdf6e3
 # 08*: Conceal          38 : 256-color
-# 09*: Crossed-out      39 : Default    (40-49 denote background colors)
+# 09*: Crossed-out      39 : Default    (Note: 40-49 denote background colors)
 #------------------------------------------------------------------------------
 
 # Basic files
 NORMAL  00          # Generic text
 FILE    00          # Regular file
-RESET   00          # ???
+RESET   00          # Reset to ordinary colours
 EXEC    01;35       # Executable file
 
 # Directories
-DIR     33          # Normal directory
-SETUID  33;40       # User-inherited contents
-SETGID  33;40       # Group-inherited contents
-STICKY  33;40       # Owner-exclusive content control
+DIR     32          # Normal directory
+SETUID  32;40       # User-inherited contents
+SETGID  32;40       # Group-inherited contents
+STICKY  32;40       # Owner-exclusive content control
 
 # Links
 LINK                36          # Valid symbolic link
@@ -40,7 +40,7 @@ MULTIHARDLINK       36;40       # Hard linked file
 
 # Public writable files
 OTHER_WRITABLE          31          # Publicly modifiable
-STICKY_OTHER_WRITABLE   31          # Publicly modifiabe, but sticky-bit safe
+STICKY_OTHER_WRITABLE   31          # Publicly modifiable but sticky-bit safe
 CAPABILITY              01;31       # Partial root privileges
 
 # Sockets
@@ -51,9 +51,10 @@ CHR     33;44       # Character device (stream)
 DOOR    35;44       # Server-client IPC for Solaris
 
 # Escape code sequences
-# LEFTCODE      \e[
-# RIGHTCODE     m
-# ENDCODE
+# LEFTCODE      \e[     # Left of color sequence
+# RIGHTCODE     m       # Right of color sequence
+# ENDCODE               # End color (replaces lc+no+rc)
+# CLRTOEOL      \e[K    # Clear to end of line
 
 #------------------------------------------------------------------------------
 # File extension
@@ -188,11 +189,6 @@ TERM xterm-color
 TERM xterm-debian
 
 # Slackware statements
-
-# COLOR: yes|all|no|none|tty
-COLOR all
-
-# EIGHTBIT: yes|no
-EIGHTBIT yes
-
-# OPTIONS: ls flags
+COLOR       all     # yes|all|no|none|tty
+EIGHTBIT    yes     # yes|no
+#OPTIONS: ls flags
