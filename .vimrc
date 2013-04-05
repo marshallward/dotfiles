@@ -61,8 +61,11 @@ augroup filetypedetect
     au! BufNewFile,BufRead *.as setfiletype actionscript
 augroup END
 
+" Assume html includes jinja2 markup
+au BufRead,BufNewFile *.html    if &ft == 'html' | set ft=htmljinja | endif
+
 autocmd filetype make setlocal noexpandtab
 autocmd filetype tex  setlocal textwidth=79
 autocmd filetype rst  setlocal textwidth=79
 autocmd filetype rst  setlocal spell spelllang=en_au
-autocmd filetype htm*,php,xml setlocal ts=2 sts=2 sw=2
+autocmd filetype htm*,php,xml setlocal ts=2 sts=2 sw=2 indentkeys-=*<Return>
