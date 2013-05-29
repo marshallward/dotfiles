@@ -24,13 +24,15 @@
 NORMAL  00          # Generic text
 FILE    00          # Regular file
 RESET   00          # ???
+
+# Executables
 EXEC    01;35       # Executable file
+SETUID  01;35;40    # User-inherited permissions
+SETGID  01;35;40    # Group-inherited permissions
 
 # Directories
-DIR     33          # Normal directory
-SETUID  33;40       # User-inherited contents
-SETGID  33;40       # Group-inherited contents
-STICKY  33;40       # Owner-exclusive content control
+DIR     32          # Normal directory
+STICKY  32;40       # Owner-exclusive content control
 
 # Links
 LINK                36          # Valid symbolic link
