@@ -46,6 +46,10 @@ hi SpecialKey ctermfg=DarkGrey
 highlight OverLength ctermbg=black guibg=black
 match OverLength /\%80v.\+/
 
+" Trailing whitespace
+highlight TrailingWhiteSpace ctermbg=black guibg=black
+match TrailingWhiteSpace / \+$/
+
 " Syntax details
 let fortran_free_source=1
 
