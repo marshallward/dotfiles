@@ -42,13 +42,12 @@ set listchars=tab:▸\ ,eol:¬
 hi NonText ctermfg=DarkGrey
 hi SpecialKey ctermfg=DarkGrey
 
-" Trailing whitespace
-highlight TrailingWhiteSpace ctermbg=black guibg=black
-match TrailingWhiteSpace /\s\+$/
-
 " Highlight >79 column lines
 highlight OverLength ctermbg=black guibg=black
-2match OverLength /\%80v.\+/
+match OverLength /\%80v.\+/
+
+" Automatically remove trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
 
 " Syntax details
 let fortran_free_source=1
