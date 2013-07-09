@@ -14,6 +14,7 @@ set background=dark " User color schemes for dark backgrounds
 syntax enable       " Use syntax highlighting
 set t_Co=16
 colorscheme solarized
+set colorcolumn=80
 
 " Wordwrap line jump
 nmap j gj
@@ -42,11 +43,8 @@ set listchars=tab:▸\ ,eol:¬
 hi NonText ctermfg=DarkGrey
 hi SpecialKey ctermfg=DarkGrey
 
-" Highlight >79 column lines
-highlight OverLength ctermbg=black guibg=black
-match OverLength /\%80v.\+/
-
 " Automatically remove trailing whitespace
+" TODO: make this less punishing
 autocmd BufWritePre * :%s/\s\+$//e
 
 " Syntax details
