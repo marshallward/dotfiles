@@ -8,6 +8,7 @@ set ruler           " Show cursor position
 set showcmd         " Show commands as they're being typed
 set showmode        " Show input mode
 set number          " Turn on row numbering
+set wildmenu        " Enhanced command line completion
 
 " Colorscheme
 set background=dark " User color schemes for dark backgrounds
@@ -54,7 +55,7 @@ let fortran_free_source=1
 filetype on
 filetype indent on
 filetype plugin on
-set ofu=syntaxcomplete#Complete
+set omnifunc=syntaxcomplete#Complete
 
 augroup filetypedetect
     au! BufRead,BufNewFile *.txt setfiletype rst
