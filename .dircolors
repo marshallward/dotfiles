@@ -24,21 +24,19 @@
 NORMAL  00          # Generic text
 FILE    00          # Regular file
 RESET   00          # Reset to ordinary colours
-
-# Executables
 EXEC    01;35       # Executable file
-SETUID  01;35;40    # User-inherited permissions
-SETGID  01;35;40    # Group-inherited permissions
 
 # Directories
 DIR     32          # Normal directory
+SETUID  32;40       # User-inherited contents
+SETGID  32;40       # Group-inherited contents
 STICKY  32;40       # Owner-exclusive content control
 
 # Links
 LINK                36          # Valid symbolic link
-ORPHAN              05;37;41    # Symbolic link to missing file
-MISSING             05;37;41    # Missing file (broken inode)
-MULTIHARDLINK       36;40       # Hard linked file
+ORPHAN              37;41       # Symbolic link to missing file
+MISSING             01;37;41    # Missing file (broken inode)
+MULTIHARDLINK       40          # Hard linked file
 
 # Public writable files
 OTHER_WRITABLE          31          # Publicly modifiable
@@ -46,11 +44,11 @@ STICKY_OTHER_WRITABLE   31          # Publicly modifiable but sticky-bit safe
 CAPABILITY              01;31       # Partial root privileges
 
 # Sockets
-FIFO    33;44       # Named pipe
-SOCK    35;44       # Domain socket
-BLK     33;44       # Block device (random access)
-CHR     33;44       # Character device (stream)
-DOOR    35;44       # Server-client IPC for Solaris
+FIFO    33;40       # Named pipe
+SOCK    35;40       # Domain socket
+BLK     33;40       # Block device (random access)
+CHR     33;40       # Character device (stream)
+DOOR    35;40       # Server-client IPC for Solaris
 
 # Escape code sequences
 # LEFTCODE      \e[     # Left of color sequence
