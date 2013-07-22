@@ -11,11 +11,11 @@ set number          " Turn on row numbering
 set wildmenu        " Enhanced command line completion
 
 " Colorscheme
-set background=dark " User color schemes for dark backgrounds
-syntax enable       " Use syntax highlighting
-set t_Co=16
-colorscheme solarized
-set colorcolumn=80
+set background=dark     " User color schemes for dark backgrounds
+syntax enable           " Use syntax highlighting
+set t_Co=16             " Assume 16-color terminal
+colorscheme solarized   " Use the solarized colorscheme
+set colorcolumn=80      " Highlight column 80
 
 " Wordwrap line jump
 nmap j gj
@@ -25,17 +25,17 @@ nmap k gk
 set backspace=indent,eol,start  " Free-form backspace
 
 " Text search
-set incsearch       " Search as you type
-set ignorecase      " Ignore case
-set smartcase       " ... unless caps are present
-set hlsearch        " Highlight all search instances
+set incsearch               " Search as you type
+set ignorecase              " Ignore case
+set smartcase               " ... unless caps are present
+set hlsearch                " Highlight all search instances
 nmap \q :nohlsearch<CR>     " Clear search highlight
 
 " Spacing
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab       " Convert tabs to spaces
+set tabstop=4               " Spacing for pre-existing tabs
+set softtabstop=4           " Space insertion when typing tab
+set shiftwidth=4            " Spacing for indentation and shifts (<<, >>)
+set expandtab               " Convert tab to spaces
 set autoindent
 
 " Whitespace display
@@ -68,6 +68,6 @@ au BufRead,BufNewFile *.html    if &ft == 'html' | set ft=htmljinja | endif
 
 autocmd filetype make setlocal noexpandtab
 autocmd filetype tex  setlocal textwidth=79
-autocmd filetype rst  setlocal textwidth=79
+autocmd filetype rst  setlocal textwidth=79 ts=3 sts=3 sw=3
 autocmd filetype rst  setlocal spell spelllang=en_au
 autocmd filetype htm*,php,xml setlocal ts=2 sts=2 sw=2 indentkeys-=*<Return>
