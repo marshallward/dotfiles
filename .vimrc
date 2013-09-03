@@ -23,6 +23,7 @@ nmap k gk
 
 " Editing
 set backspace=indent,eol,start  " Free-form backspace
+set mouse=a                     " Full mouse support
 
 " Text search
 set incsearch               " Search as you type
