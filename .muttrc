@@ -1,0 +1,47 @@
+set editor = vim
+source $HOME/.mutt/mutt-colors-solarized-dark-16.muttrc
+
+# IMAP
+set folder = imaps://outlook.office365.com:993/
+set imap_user = u4607002@uds.anu.edu.au
+
+set spoolfile = +INBOX
+set postponed = +Drafts
+set record = +Sent
+mailboxes = +INBOX
+mailboxes imaps://outlook.office365.com:993/INBOX
+set imap_check_subscribed
+
+unset imap_passive
+set imap_keepalive = 300
+set mail_check = 30
+
+# Maildir
+set mbox_type = Maildir
+set header_cache = "~/.cache/mutt"
+set message_cachedir = "~/.cache/mutt"
+
+# SMTP
+set realname = 'Marshall Ward'
+set from = 'marshall.ward@anu.edu.au'
+set use_from = yes
+
+set smtp_url = smtp://$imap_user@smtp.office365.com:587
+set ssl_starttls = yes
+
+set send_charset="utf-8"
+
+# Sorting
+set sort = reverse-threads
+set sort_aux = date-received
+
+# Misc
+set mailcap_path = ~/.mutt/mailcap
+auto_view text/html
+alternative_order text/plain text/html
+
+# Address book
+set query_command = "abook --mutt-query '%s'"
+macro index,pager a "<pipe-message>abook --add-email-quiet<return>" \
+                    "Add this sender to Abook"
+bind editor <Tab> complete-query
