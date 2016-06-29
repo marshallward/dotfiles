@@ -1,14 +1,25 @@
+# UI
 set editor = vim
 source $HOME/.mutt/mutt-colors-solarized-dark-16.muttrc
 
 # IMAP
+# (Local)
+#set mbox_type = Maildir
+#set folder = ~/.mail/anumail
+#set spoolfile = +INBOX
+#set postponed = +Drafts
+#set record = +Sent
+#mailboxes +INBOX
+#bind index "^" imap-fetch-mail
+
+# (Remote)
 set folder = imaps://outlook.office365.com:993/
 set imap_user = u4607002@uds.anu.edu.au
-
+# set imap_pass = hash-me
 set spoolfile = +INBOX
 set postponed = +Drafts
 set record = +Sent
-mailboxes = +INBOX
+mailboxes +INBOX
 mailboxes imaps://outlook.office365.com:993/INBOX
 set imap_check_subscribed
 
@@ -16,32 +27,42 @@ unset imap_passive
 set imap_keepalive = 300
 set mail_check = 30
 
-# Maildir
-set mbox_type = Maildir
+# Caches
 set header_cache = "~/.cache/mutt"
 set message_cachedir = "~/.cache/mutt"
 
 # SMTP
 set realname = 'Marshall Ward'
 set from = 'marshall.ward@anu.edu.au'
-set use_from = yes
+set use_from
 
-set smtp_url = smtp://$imap_user@smtp.office365.com:587
-set ssl_starttls = yes
+set smtp_url = smtp://u4607002@uds.anu.edu.au@smtp.office365.com:587
+set ssl_starttls
 
 set send_charset="utf-8"
 
-# Sorting
+# Threads
+folder-hook . 'push "<collapse-all>"' # Collapse on default
 set sort = reverse-threads
-set sort_aux = date-received
+set sort_aux = last-date-received
+set strict_threads
+unset collapse_unread
+set uncollapse_jump
+bind index - collapse-thread
+bind index _ collapse-all
 
-# Misc
+# HTML viewing
 set mailcap_path = ~/.mutt/mailcap
 auto_view text/html
 alternative_order text/plain text/html
+macro attach 'V' "<pipe-entry>cat >~/.cache/mutt/mail.html && firefox ~/.cache/mutt/mail.html && rm ~/.cache/mutt/mail.html<enter>"
 
 # Address book
 set query_command = "abook --mutt-query '%s'"
 macro index,pager a "<pipe-message>abook --add-email-quiet<return>" \
                     "Add this sender to Abook"
 bind editor <Tab> complete-query
+
+# Shortcuts
+#bind index gg first-entry
+#bind index = noop
