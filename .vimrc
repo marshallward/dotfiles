@@ -12,8 +12,11 @@ set cursorline      " Highlight the current line
 set showcmd         " Show commands as they're being typed
 set showmode        " Show input mode
 set number          " Turn on row numbering
-set wildmenu        " Enhanced command line completion
 set lazyredraw      " Less aggressive redrawing
+
+" Tab completion
+set wildmode=longest,list,full  " Tab-complete rule sequence
+set wildmenu                    " Enhanced command line completion
 
 " Colorscheme
 set background=dark     " User color schemes for dark backgrounds
@@ -28,7 +31,7 @@ nmap k gk
 
 " Editing
 set backspace=indent,eol,start  " Free-form backspace
-set mouse=n                     " Full mouse support
+set mouse=c                     " Command line mouse environment
 
 " Text search
 set incsearch               " Search as you type
