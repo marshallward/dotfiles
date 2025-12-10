@@ -10,3 +10,7 @@
     editor = vim
 [merge]
     tool = vimdiff
+[init]
+    defaultBranch = main
+[pager]
+    branch = false
