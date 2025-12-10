@@ -1,9 +1,6 @@
 " Encoding
 set encoding=utf8
 
-" Enable pathogen
-execute pathogen#infect()
-
 " Cosmetics
 set nocompatible    " Vim mode (not vi mode)
 set shortmess=I     " No splash screen on startup
@@ -61,10 +58,20 @@ hi SpecialKey ctermfg=DarkGrey
 
 " Automatically remove trailing whitespace
 " TODO: make this less punishing
-autocmd BufWritePre * :%s/\s\+$//e
+"autocmd BufWritePre * :%s/\s\+$//e
 
 " Syntax details
 let fortran_free_source=1
+"let fortran_fixed_source=1
+let rst_fold_enabled=1
+let rst_syntax_code_list = {
+    \ 'fortran': ['fortran'],
+    \ 'cpp': ['c', 'cpp', 'c++'],
+    \ 'sh': ['sh'],
+    \ 'make': ['make'],
+    \ 'python': ['python'],
+    \ 'vim': ['vim'],
+\ }
 
 " filetype detection, language specific settings
 filetype on
@@ -81,6 +88,7 @@ augroup END
 autocmd filetype make setlocal noexpandtab
 autocmd filetype tex  setlocal textwidth=79
 autocmd filetype rst  setlocal textwidth=79 ts=3 sts=3 sw=3
+autocmd filetype fortran setlocal textwidth=79 ts=2 sts=2 sw=2
 autocmd filetype rst  setlocal spell spelllang=en_au
 autocmd filetype htm*,php,xml setlocal ts=2 sts=2 sw=2 indentkeys-=*<Return>
 
