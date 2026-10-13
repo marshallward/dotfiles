@@ -1,8 +1,6 @@
 " Encoding
 set encoding=utf8
-
-" Enable pathogen
-execute pathogen#infect()
+"set directory=$HOME/.vim/swapfiles//
 
 " Cosmetics
 set nocompatible    " Vim mode (not vi mode)
@@ -61,10 +59,20 @@ hi SpecialKey ctermfg=DarkGrey
 
 " Automatically remove trailing whitespace
 " TODO: make this less punishing
-autocmd BufWritePre * :%s/\s\+$//e
+"autocmd BufWritePre * :%s/\s\+$//e
 
 " Syntax details
 let fortran_free_source=1
+"let fortran_fixed_source=1
+let rst_fold_enabled=1
+let rst_syntax_code_list = {
+    \ 'fortran': ['fortran'],
+    \ 'cpp': ['c', 'cpp', 'c++'],
+    \ 'sh': ['sh'],
+    \ 'make': ['make'],
+    \ 'python': ['python'],
+    \ 'vim': ['vim'],
+\ }
 
 " filetype detection, language specific settings
 filetype on
@@ -79,6 +87,7 @@ augroup filetypedetect
 augroup END
 
 autocmd filetype make setlocal noexpandtab
+autocmd filetype fortran setlocal textwidth=79 ts=2 sts=2 sw=2
 autocmd filetype tex  setlocal textwidth=79
 autocmd filetype rst  setlocal textwidth=79 ts=3 sts=3 sw=3
 autocmd filetype rst  setlocal spell spelllang=en_au
@@ -86,6 +95,15 @@ autocmd filetype htm*,php,xml setlocal ts=2 sts=2 sw=2 indentkeys-=*<Return>
 
 " Plugins
 nnoremap <F5> :GundoToggle<CR>
+
+" Disable syntax highlights for diff
+if &diff
+    syntax off
+endif
+
+" Weird terminal escape character issue
+" https://vi.stackexchange.com/questions/27399/whats-t-te-and-t-ti-added-by-vim-8/
+set t_TI= t_TE=
 
 " testing
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
