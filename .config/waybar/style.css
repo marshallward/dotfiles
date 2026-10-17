@@ -127,6 +127,11 @@ button:hover {
     color: #000000;
 }
 
+#battery.warning:not(.charging):not(.plugged) {
+    background-color: #f1c40f;
+    color: #000000;
+}
+
 #battery.charging, #battery.plugged {
     color: #ffffff;
     background-color: #26A65B;
@@ -140,7 +145,7 @@ button:hover {
 }
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
-#battery.critical:not(.charging) {
+#battery.critical:not(.charging):not(.plugged) {
     background-color: #f53c3c;
     color: #ffffff;
     animation-name: blink;

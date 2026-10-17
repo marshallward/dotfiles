@@ -21,14 +21,14 @@
         "idle_inhibitor",
         "pulseaudio",
         "network",
-        //"power-profiles-daemon",
+        "power-profiles-daemon",
         "cpu",
         "memory",
         //"temperature",
-        //"backlight",
+        "backlight",
         "keyboard-state",
         //"sway/language",
-        //"battery",
+        "battery",
         //"battery#bat2",
         "clock",
         "tray"
@@ -72,7 +72,7 @@
     //},
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-        "format-disconnected": "Disconnected ",
+        "format-disconnected": "",
         "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
         "unknown-tag": "N/A",
         "interval": 5,
@@ -109,6 +109,7 @@
     },
     "clock": {
         // "timezone": "America/New_York",
+        "format": "{:%a %b %d  %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
     },
@@ -127,40 +128,39 @@
     //    "format": "{temperatureC}°C {icon}",
     //    "format-icons": ["", "", ""]
     //},
-    //"backlight": {
-    //    // "device": "acpi_video1",
-    //    "format": "{percent}% {icon}",
-    //    "format-icons": ["", "", "", "", "", "", "", "", ""]
-    //},
-    //"battery": {
-    //    "states": {
-    //        // "good": 95,
-    //        "warning": 30,
-    //        "critical": 15
-    //    },
-    //    "format": "{capacity}% {icon}",
-    //    "format-full": "{capacity}% {icon}",
-    //    "format-charging": "{capacity}% ",
-    //    "format-plugged": "{capacity}% ",
-    //    "format-alt": "{time} {icon}",
-    //    // "format-good": "", // An empty format will hide the module
-    //    // "format-full": "",
-    //    "format-icons": ["", "", "", "", ""]
-    //},
+    "backlight": {
+        // Auto-detect the backlight device instead of using a laptop-specific name.
+        "format": "{percent}% ",
+        "scroll-step": 5,
+        "min-brightness": 5
+    },
+    "battery": {
+        // Auto-detect system batteries; Waybar hides this module when none exist.
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
     //"battery#bat2": {
     //    "bat": "BAT2"
     //},
-    //"power-profiles-daemon": {
-    //  "format": "{icon}",
-    //  "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-    //  "tooltip": true,
-    //  "format-icons": {
-    //    "default": "",
-    //    "performance": "",
-    //    "balanced": "",
-    //    "power-saver": ""
-    //  }
-    //},
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}\nClick to change profile",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
@@ -192,10 +192,13 @@
     "custom/media": {
         "format": "{icon} {text}",
         "return-type": "json",
+        "interval": 2,
+        "hide-empty-text": true,
+        "on-click": "playerctl play-pause",
         "max-length": 40,
         "format-icons": {
             "spotify": "",
-            "default": "🎜"
+            "default": ""
         },
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
